@@ -19,10 +19,10 @@ import java.util.List;
  */
 public class ColourTable {
 
-    private int paletteSize;
+    private final int paletteSize;
 
     // Array list colourTable
-    private List<int[]> colourTable;
+    private final List<int[]> colourTable;
 
     /**
      * This is the constructor for the class ColourTable. When instantiated, it creates a
@@ -96,7 +96,7 @@ public class ColourTable {
         for (int[] colour : colourTable) {
             // If the user input already exists within the array, value is set to true
             if (Arrays.equals(colour, rgbValues))
-            return true;
+                return true;
         }
         // Otherwise, it is set to false
         return false;
