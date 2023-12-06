@@ -7,15 +7,13 @@ import java.util.List;
 /**
  * This class creates a colour palette of specified size which takes in RGB values stored as an
  * integer list inside an ArrayList
- *
  * The classes functionality extends to the ability to add colours into the palette via the add method.
- *
  * The class provides error handling which raises exceptions under these following conditions
- *
+ * <p></p>
  * 1. If the palette size specified is out of range (no less than 1 and no more than 1024) or not a power of 2
  * 2. If the inputted RGB values creating a colour are out of RGB range (0-255)
  * 3. If the colour that the developer wants to add to the palette is already in the palette
- *
+ *<p></p>
  * Using this class a colour palette can be created by creating an instance of the class and
  * specifying a valid size of the palette.
  */
@@ -29,7 +27,7 @@ public class ColourTable {
     /**
      * This is the constructor for the class ColourTable. When instantiated, it creates a
      * palette of given size paletteSize
-     *
+     * <p></p>
      * @param paletteSize The size of palette specified by the user
      */
     public ColourTable(int paletteSize) {
@@ -45,7 +43,9 @@ public class ColourTable {
     /**
      * This method handles the valid range of the size of the palette given the requirements.
      * The return value is either true or false.
+     * <p></p>
      * @param size Size of the palette
+     * <p></p>
      * @return true if in range and valid or false if not in range and invalid.
      */
     public static boolean validPaletteSize(int size) {
@@ -57,9 +57,9 @@ public class ColourTable {
     /**
      * Method for the developer to add colours to the palette. Includes exception handling
      * for invalid and duplicate RGB entries.
-     *
+     * <p></p>
      * @param rgbValues An integer array of RGB values.
-     *
+     * <p></p>
      */
     public void add(int[] rgbValues) {
 
@@ -86,7 +86,9 @@ public class ColourTable {
 
     /**
      * Method that checks whether the RGB input is already in the array
+     * <p></p>
      * @param rgbValues An integer array of RGB values.
+     * <p></p>
      * @return true if in the array, false if not present.
      */
     public boolean isDuplicate(int [] rgbValues) {
