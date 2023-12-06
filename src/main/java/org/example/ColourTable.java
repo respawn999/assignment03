@@ -25,6 +25,12 @@ public class ColourTable {
 
 
     public void add(int[] rgbValues) {
+
+        for (int rgbValue : rgbValues) {
+                 if (rgbValue < 0 || rgbValue > 255) {
+                     throw new IllegalArgumentException("No such RGB value exists, numbers must be between 0 and 255");
+                 }
+             }
         if (colourTable.size() >= paletteSize) {
             throw new RuntimeException("Palette size exceeded");
         }
