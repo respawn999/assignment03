@@ -1,23 +1,36 @@
 import org.example.ColourTable;
-
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+/**
+ * Test class for ColourTable. Tests all the methods for validity.
+ */
 public class ColourTableTests {
+
+
+   /**
+    * This method checks for the correct behaviour of the 'invalidPaletteSize' method.
+    * It checks if it will detect valid and invalid inputs and will change its boolean value
+    * accordingly
+    */
    @Test
    public void validPaletteSize() {
-      assertTrue(ColourTable.invalidPaletteSize(2));
-      assertTrue(ColourTable.invalidPaletteSize(4));
-      assertTrue(ColourTable.invalidPaletteSize(8));
-      assertTrue(ColourTable.invalidPaletteSize(16));
-      assertFalse(ColourTable.invalidPaletteSize(3));
-      assertFalse(ColourTable.invalidPaletteSize(5));
-      assertFalse(ColourTable.invalidPaletteSize(643));
-      assertFalse(ColourTable.invalidPaletteSize(3000));
+      assertTrue(ColourTable.validPaletteSize(2));
+      assertTrue(ColourTable.validPaletteSize(4));
+      assertTrue(ColourTable.validPaletteSize(8));
+      assertTrue(ColourTable.validPaletteSize(16));
+      assertFalse(ColourTable.validPaletteSize(3));
+      assertFalse(ColourTable.validPaletteSize(5));
+      assertFalse(ColourTable.validPaletteSize(643));
+      assertFalse(ColourTable.validPaletteSize(3000));
    }
 
+   /**
+    * This test checks whether the inputs into the array "colourTable" are valid and
+    * if an exception will be raised given the amount of inputs exceeds the array limit.
+    */
    @Test
    public void paletteSizeLimit() {
       ColourTable colourTable = new ColourTable(4);
@@ -30,6 +43,11 @@ public class ColourTableTests {
    }
 
 
+   /**
+    * This test checks whether the colour the developer inputted possesses the correct RGB values
+    * which are specified by the RGB range of 0-255. An exception is raised if any of the RGB
+    * values are out of range.
+    */
    @Test
    public void rgbValidity() {
       ColourTable colourTable = new ColourTable(4);
@@ -45,6 +63,11 @@ public class ColourTableTests {
 
    }
 
+   /**
+    * This test checks if an input value in the add method is already inside the
+    * colourTable array. An exception is raised if the colour is already found as an element
+    * of the array
+    */
    @Test
    public void ifDuplicate() {
       ColourTable colourTable = new ColourTable(16);
