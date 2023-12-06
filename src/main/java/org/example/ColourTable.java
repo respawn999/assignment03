@@ -26,29 +26,30 @@ public class ColourTable {
 
     public void add(int[] rgbValues) {
 
+        if (isDuplicate(rgbValues)) {
+
+            throw new RuntimeException("The colour is already in the palette");
+        }
+
         for (int rgbValue : rgbValues) {
-                 if (rgbValue < 0 || rgbValue > 255) {
-                     throw new IllegalArgumentException("No such RGB value exists, numbers must be between 0 and 255");
-                 }
-             }
+            if (rgbValue < 0 || rgbValue > 255) {
+                throw new IllegalArgumentException("No such RGB value exists, numbers must be between 0 and 255");
+            }
+        }
         if (colourTable.size() >= paletteSize) {
             throw new RuntimeException("Palette size exceeded");
         }
-        if (!containsRGB(rgbValues)) {
-            colourTable.add(rgbValues); // Add colour to palette
-        }
+
+        colourTable.add(rgbValues);
 
     }
 
-
-    public boolean containsRGB(int[] rgbValues) {
+    public boolean isDuplicate(int [] rgbValues) {
         for (int[] colour : colourTable) {
-            if (Arrays.equals(colour, rgbValues)) {
-                return true; // Colour in palette already
-            }
+            if (Arrays.equals(colour, rgbValues))
+            return true;
         }
-        return false; // Colour can be added to palette
+        return false;
     }
 
-
-}
+    }

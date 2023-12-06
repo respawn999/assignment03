@@ -45,4 +45,24 @@ public class ColourTableTests {
 
    }
 
+   @Test
+   public void ifDuplicate() {
+      ColourTable colourTable = new ColourTable(16);
+      colourTable.add(new int[]{0, 0, 0});
+      colourTable.add(new int[]{43, 0, 76});
+      colourTable.add(new int[]{255, 0, 255});
+      colourTable.add(new int[]{0, 45, 0});
+      colourTable.add(new int[]{22, 0, 0});
+      colourTable.add(new int[]{0, 0, 56});
+      colourTable.add(new int[]{255, 255, 255});
+
+      RuntimeException exception = assertThrows(RuntimeException.class, () -> colourTable.add(new int[]{0,0,0}));
+      RuntimeException exception2 = assertThrows(RuntimeException.class, () -> colourTable.add(new int[]{255, 0, 255}));
+      RuntimeException exception3 = assertThrows(RuntimeException.class, () -> colourTable.add(new int[]{0, 45, 0}));
+      RuntimeException exception4 = assertThrows(RuntimeException.class, () -> colourTable.add(new int[]{22, 0, 0}));
+      RuntimeException exception5 = assertThrows(RuntimeException.class, () -> colourTable.add(new int[]{0, 0, 56}));
+      RuntimeException exception6 = assertThrows(RuntimeException.class, () -> colourTable.add(new int[]{255, 255, 255}));
+
+   }
+
 }
