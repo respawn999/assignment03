@@ -8,5 +8,12 @@ public class ColourTableTests {
    @Test
    public void validPaletteSize(){
       assertTrue(ColourTable.invalidPaletteSize(2));
+      assertTrue(ColourTable.invalidPaletteSize(4));
+      assertTrue(ColourTable.invalidPaletteSize(8));
+      assertTrue(ColourTable.invalidPaletteSize(16));
+      assertFalse(ColourTable.invalidPaletteSize(3));
+      assertFalse(ColourTable.invalidPaletteSize(5));
+      assertFalse(ColourTable.invalidPaletteSize(643));
+      assertFalse(ColourTable.invalidPaletteSize(3000));
    }
 }
